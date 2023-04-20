@@ -72,6 +72,15 @@ $( "#signup-from" ).submit(function( event ) {
 
   auth
     .createUserWithEmailAndPassword(email, password)
+    .then(cred => {
+      console.log(cred.user);
+      return db.collection("users")
+          .add({
+            name,
+            uuid: cred.user.uid
+          })
+
+      })
     .then((data) => {
       window.location.href = "index.html" 
     })
