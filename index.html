@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">  
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Craving Solutions</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="logo.png" rel="icon">
+  <link href="logo.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <script src="https://www.gstatic.com/firebasejs/7.1.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.1.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.1.0/firebase-firestore.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- ======= Top Bar ======= -->
+  <section id="topbar" class="d-flex align-items-center">
+    <div class="container d-flex justify-content-center justify-content-md-between">
+      <div class="contact-info d-flex align-items-center">
+        <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:contact@example.com">rishabhallawadi3@gmail.com</a></i>
+        <i class="bi bi-phone d-flex align-items-center ms-4"><span>+91 70273 90444</span></i>
+      </div>
+      <div class="social-links d-none d-md-flex align-items-center">
+        <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+        <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+        <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+        <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="d-flex align-items-center">
+    <div class="container d-flex justify-content-between align-items-center">
+
+      <div class="logo">
+        <h1><a href="index.html">Craving Solutions</a></h1>
+      </div>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="addrestaurant.html" id="addrestaurant-menu-item" style="display: none;">Add Restaurant</a></li>
+          <li><a href="findrestaurant.html" id="findrestaurant-menu-item" style="display: none;">Find Restaurant</a></li>
+          <li><a href="downloadapp.html">Download App</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="login.html" id="login-menu-item">Log In</a></li>
+          <li><a href="javascript:void(0)" id="signout-menu-item" style="display: none;">Sign out</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero">
+    <div class="hero-container">
+      <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
+
+        <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+
+        <div class="carousel-inner" role="listbox">
+
+          <!-- Slide 1 -->
+          <div class="carousel-item active" style="background-image: url(assets/img/slide/slide-1.jpg)">
+            <div class="carousel-container">
+              <div class="carousel-content">
+                <h2 class="animate__animated animate__fadeInDown">Welcome to <span>Craving Solutions</span></h2>
+                <p class="animate__animated animate__fadeInUp">Find the best restaurants, cafés and bars in India</p>
+                <a href="" class="btn-get-started animate__animated animate__fadeInUp">See What We Got for you</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="carousel-item" style="background-image: url(assets/img/slide/slide-2.jpg)">
+            <div class="carousel-container">
+              <div class="carousel-content">
+                <h2 class="animate__animated fanimate__adeInDown">Cooking gone<span> wrong?</span></h2>
+                <p class="animate__animated animate__fadeInUp">Order food from favourite restaurants near you.</p>
+                <a href="" class="btn-get-started animate__animated animate__fadeInUp">See Restaurants</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="carousel-item" style="background-image: url(assets/img/slide/slide-3.jpg)">
+            <div class="carousel-container">
+              <div class="carousel-content">
+                <h2 class="animate__animated animate__fadeInDown">Restaurants in <span>your pocket</span></h2>
+                <p class="animate__animated animate__fadeInUp">Order from your favorite restaurants & track on the go, with the app.</p>
+                <a href="" class="btn-get-started animate__animated animate__fadeInUp">Download Now</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+        </a>
+
+        <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
+          <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+        </a>
+
+      </div>
+    </div>
+  </section><!-- End Hero -->
+
+  <main id="main">
+
+    <!-- ======= Featured Section ======= -->
+    <section id="featured" class="featured">
+      <div class="container">
+
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="icon-box">
+              <i class="bi bi-card-checklist"></i>
+              <h3><a href="">No Minimum Order</a></h3>
+              <p>Order in for yourself or for the group, with no restrictions on order value</p>
+            </div>
+          </div>
+          <div class="col-lg-4 mt-4 mt-lg-0">
+            <div class="icon-box">
+              <i class="bi bi-bar-chart"></i>
+              <h3><a href="">Live Order Tracking</a></h3>
+              <p>Know where your order is at all times, from the restaurant to your doorstep</p>
+            </div>
+          </div>
+          <div class="col-lg-4 mt-4 mt-lg-0">
+            <div class="icon-box">
+              <i class="bi bi-binoculars"></i>
+              <h3><a href="">Lightning-Fast Delivery</a></h3>
+              <p>Experience Our superfast delivery for food delivered fresh & on time</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Featured Section -->
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container">
+
+        <div class="row">
+          <div class="col-lg-6">
+            <img src="assets/img/about.jpg" class="img-fluid" alt="">
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0 content">
+            <h3>Craving Solutions Food Ordering</h3>
+            <p class="fst-italic">
+              Mid Night Cravings? Don't Worry We Got the Best Food From best Restaurantrs Near You. Order Now !
+            </p>
+            <ul>
+              <li><i class="bi bi-check-circle"></i> We build innovative products & solutions that deliver unparalleled convenience to urban consumers.</li>
+              <li><i class="bi bi-check-circle"></i> The best part? Every bit of your work at Swiggy will help elevate the lives of our users across India.</li>
+              <li><i class="bi bi-check-circle"></i> Our mission is to elevate the quality of life for the urban consumer with unparalleled convenience. Convenience is what makes us tick. It's what makes us get out of bed and say, "Let's do this."</li>
+            </ul>
+            <p>
+              Craving Solutions has grand plans to be India’s most loved hyperlocal player. It aims to be the most accessible platform on the network - reimagining the meaning of convenience in the country through a variety of service offerings.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Section -->
+
+    <!-- ======= Services Section ======= -->
+    <section id="services" class="services">
+      <div class="container">
+        <div><h1>Opportunities:</h1> </div>
+        <div class="row">
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+            <div class="icon-box">
+              <div class="icon"><!-- <i class="bx bxl-dribbble"></i> --><img src="carerr_img1.png"></div>
+              <h4><a href="#">Apply</a></h4>
+              <p>See something you want to be part of? Just select the job and apply in the above section.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
+            <div class="icon-box">
+              <div class="icon"><!-- <i class="bx bx-file"> --></i><img class="rounded-circle" src="card_img4.jpg" height="100px"></div>
+              <h4><a href="">Shortlisting</a></h4>
+              <p>Background Verification and shortlisting of your interview selection on the basis of your resume and the qualifications that they match the criteria and the requirements of the company.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
+            <div class="icon-box">
+              <div class="icon"><img src="carerr_img2.png"></div>
+              <h4><a href="">Written/Technical</a></h4>
+              <p>If we like what we see in your profile, we'll reach out for a written/technical interview as a precursor to the next big thing.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
+            <div class="icon-box">
+              <div class="icon"><img src="carerr_img3.png"></i></div>
+              <h4><a href="">Personal Interview</a></h4>
+              <p>Here's where we meet you and find out if you have what it takes to become part of our thriving team.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
+            <div class="icon-box">
+              <div class="icon"><img src="carerr_img4.png"></div>
+              <h4><a href="">HR Discussion</a></h4>
+              <p>A short exchange with our HR team will follow. Feel free to ask as many questions as you want.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
+            <div class="icon-box">
+              <div class="icon"><img src="carerr_img5.png"></div>
+              <h4><a href="">Final Review</a></h4>
+              <p>We'll be right back with you after a short discussion internally. Hold tight until then!</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Services Section -->
+
+    <!-- ======= Clients Section ======= -->
+    <section id="clients" class="clients">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Where Do You <strong>Belong?</strong></h2>
+          <!-- <p>Choose The services We Offer And be a part of our Organisation</p> -->
+        </div>
+
+        <div class="clients-slider swiper">
+          <div class="swiper-wrapper align-items-center">
+            <div class="swiper-slide"><img src="ic_1.png" class="img-fluid" alt="">TECHNOLOGY</div>
+            <div class="swiper-slide"><img src="ic_2.png" class="img-fluid" alt="">BUSINESS</div>
+            <div class="swiper-slide"><img src="ic_3.png" class="img-fluid" alt="">CLOUD KITCHEN</div>
+            <div class="swiper-slide"><img src="ic_4.png" class="img-fluid" alt="">CUSTOMER CARE</div>
+            <div class="swiper-slide"><img src="ic_5.png" class="img-fluid" alt="">CAMPUS</div>
+            <div class="swiper-slide"><img src="ic_6.png" class="img-fluid" alt="">CORPORATE SUPPORT FUNCTIONS</div>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+
+      </div>
+    </section><!-- End Clients Section -->
+
+  </main><!-- End #main -->
+
+  <section class="p-0">
+    <div class="row border border-secondary border-3">
+      <div class="col-md-6 text-center p-5">
+        <h4>Get In <b>Touch</b></h4>
+        <h2>Head Office</h2>
+        <address>
+          <h3>Craving Solutions Pvt. Ltd.</h3>
+          <p>No. 1 Dabra Chowk Opposite Flyover <span>|</span> Delhi-Sirsa Road, Hisar Haryana - 125001</p>
+        </address>
+      </div>
+      <div class="col-md-6 p-0">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3557.662265463326!2d75.80267561744382!3d26.9142117!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396db5687c5efef3%3A0x9a2299fd36b45e07!2sCraving%20Solution%20cafe!5e0!3m2!1sen!2sin!4v1679487495047!5m2!1sen!2sin" width="100%" height="100%" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>About</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="index.html">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="about.html">About us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="addrestaurant.html">Add Restaurant</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="findrestaurant.html">Find Restaurant</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="downloadapp.html">Download App</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <a href="about.html"><h4>About Us</h4></a>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="feedback.html">Feedback</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="contact.html">Contact Us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="privacy.html">Privacy</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="security.html">Security</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="terms.html">Terms Of Service</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <a href="contact.html"><h4>Contact Us</h4></a>
+            <p>
+              No 1 Dabra Chowk <br>
+              Opposite Flyover, Delhi-Sirsa Road<br>
+              Hisar, Haryana, India. <br><br>
+              <strong>Phone:</strong> +91 70273 90444<br>
+              <strong>Email:</strong> rishabhallawadi3@gmail.com<br>
+            </p>
+
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-info">
+            <h4>Find Us On Social Media :</h4>
+            <div class="social-links mt-3">
+              <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+              <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+              <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+              <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+              <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Craving Solutions</span></strong>. All Rights Reserved
+      </div>
+      
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- JS Files -->
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/firebase.js"></script>
+
+</body>
+
+</html>
