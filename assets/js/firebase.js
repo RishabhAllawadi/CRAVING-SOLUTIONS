@@ -21,6 +21,10 @@ firebase.initializeApp(firebaseConfig);
 // make auth and firestore references
 const auth = firebase.auth()
 const db = firebase.firestore()
+if(firebase.storage) {
+  const storage = firebase.storage();
+}
+
 
 auth.onAuthStateChanged(user => {
   console.log("USER", user);
@@ -95,7 +99,7 @@ $( "#signout-menu-item" ).click(function( event ) {
   auth.signOut();
 });
 
-$("#contact-us").submit(function(event) {
+$("#contact-us").submit(async function(event) {
   console.log("jsbcasjbcasjjh")
   event.preventDefault();
   let name = $("#contact-name").val()
@@ -105,10 +109,11 @@ $("#contact-us").submit(function(event) {
   if(!name || !email || !subject || !message) {
     return alert("Please fill required fields.")
   }
+  let fileURL = await uploadFile();
 
   db.collection("contactus")
     .add({
-      name,email, subject, message, page: window.location.href
+      name,email, subject, message, page: window.location.href, doc: fileURL
     })
     .then(() => {
       this.reset();
@@ -116,3 +121,67 @@ $("#contact-us").submit(function(event) {
     })
     .catch(err => alert(err.message));
 })
+
+function loadContactUsDetails() {
+  db.collection("contactus")
+    .get()
+    .then(async (snapshot ) => {
+      let html = ""
+      if(snapshot ) {
+        snapshot.forEach((doc, index) => {
+          var data = doc.data()
+          console.log(doc.id, '=>', data);
+          html += `
+            <tr>
+            <th scope="row">${data.name}</th>
+            <td>${data.email}</td>
+            <td>${data.subject}</td>
+            <td>${data.message}</td>
+            <td>${data.doc ? "<a href=" + data.doc + " target='new'>View</a>":""}</td>
+          </tr>
+          `
+        });
+      }
+      console.log("html", html)
+      if(html) {
+        $("#contact-us-data tbody").append(html)
+      } else {
+        $("#contact-us-data tbody").append(`<tr>
+          <td class="text-center" colspan="5">No Data Found !</td>
+        </tr>`)
+        
+      }
+    })
+    .catch(err => console.log("[Error fetching data]", (err.message)));
+}
+
+async function uploadFile() {
+  return new Promise(function(resolve, reject) {
+     var file=document.getElementById("files").files[0];
+     if(file) {
+        var storageref = storage.ref();
+        var thisref = storageref.child("docs").child(Date.now().toString()).put(file);
+
+        thisref.on('state_changed',function(snapshot) {
+          const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+          console.log('Upload is ' + progress + '% done');
+        }, function(error) {
+          resolve("")
+        }, function() {
+          // Uploaded completed successfully, now we can get the download URL
+          return thisref.snapshot.ref
+          .getDownloadURL()
+          .then(function(downloadURL) {
+            resolve(downloadURL)
+          })
+          .catch(err => {
+            resolve("")
+            console.log("[Error uploading data]", (err.message))
+          });
+        });
+     } else {
+      resolve("")
+     }
+  })
+   
+}
